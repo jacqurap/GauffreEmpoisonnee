@@ -6,10 +6,12 @@
 package gauffreempoisonnee.Modele;
 
 import java.util.Stack;
+
 /**
- *
+ * La partie
  * @author jacqurap
  */
+
 public class Partie {
     //joueur1
     //joueur2
@@ -18,6 +20,9 @@ public class Partie {
     Stack<Plateau> annuler;
     Stack<Plateau> refaire;
     
+    /**
+     * Création d'une partie
+     */
     public Partie(){
         this.plateau = new Plateau();
         this.annuler = new Stack<>();
@@ -25,14 +30,16 @@ public class Partie {
     }
 
     /**
-     * @return the plateau
+     * Récupère le plateau
+     * @return plateau
      */
     public Plateau getPlateau() {
         return plateau;
     }
 
     /**
-     * @param plateau the plateau to set
+     *  Définition du plateau
+     * @param plateau le plateau a definir
      */
     public void setPlateau(Plateau plateau) {
         this.plateau = plateau;

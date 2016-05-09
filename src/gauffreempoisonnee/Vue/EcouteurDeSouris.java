@@ -12,14 +12,21 @@ import javax.swing.*;
 import gauffreempoisonnee.Controler.*;
 
 /**
- *
+ * Actions diverses de la souris
  * @author jacqurap
  */
 class EcouteurDeSouris implements MouseListener {
     
     Moteur moteur;
     AireDeJeu aire;
-
+    
+    /**
+     * Création d'un écouteur de souris en fonction d'une aire de jeu
+     * @author jacqurap
+     * @param aire l'aire de jeu concerné par l'écouteur
+     * @param moteur le moteur de l'aire de jeu
+     */
+   
     public EcouteurDeSouris(Moteur moteur, AireDeJeu aire) {
         this.moteur = moteur;
         this.aire = aire;

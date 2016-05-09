@@ -12,18 +12,27 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- *
+ * Le plateau graphique
  * @author jacqurap
  */
 public class AireDeJeu extends JComponent {
 
     Moteur moteur;
+    
+    /**
+     * Création d'une aire de jeu 
+     * @param moteur le moteur assigné à l'aire de jeu
+     */
 
     public AireDeJeu(Moteur moteur) {
         this.moteur = moteur;
 
     }
 
+    /**
+     * Dessiner l'aire de jeu
+     * @param g le moteur graphique pour l'aire de jeu
+     */
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D drawable = (Graphics2D) g;

@@ -8,15 +8,26 @@ import gauffreempoisonnee.Modele.*;
 
 
 /**
- *
+ * Le Moteur (Arbitre)
  * @author jacqurap
  */
 public class Moteur {
     private Partie partie;
     
+    /**
+     * Création d'un moteur
+     * @author jacqurap
+     */
     public Moteur() {
         partie = new Partie();
     }
+    
+    /**
+     * Regarde si la case fait partie de la gaufre
+     * @param x la coordonnée horizontale
+     * @param y la coordonnée Verticale
+     * @return false s'il n'appartient pas à la gaufre, true sinon
+     */
     
     public boolean actionMoteur(int x, int y) {
         int[][] gauffreActuel = getPartie().getPlateau().getGauffre();
@@ -30,14 +41,14 @@ public class Moteur {
     }
 
     /**
-     * @return the partie
+     * @return la partie
      */
     public Partie getPartie() {
         return partie;
     }
 
     /**
-     * @param partie the partie to set
+     * @param partie la partie à définir
      */
     public void setPartie(Partie partie) {
         this.partie = partie;
