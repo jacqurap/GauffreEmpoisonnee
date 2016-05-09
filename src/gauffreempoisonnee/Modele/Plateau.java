@@ -12,9 +12,13 @@ package gauffreempoisonnee.Modele;
 public class Plateau {
 
     private int[][] gauffre;
-
+    private int tailleX;
+    private int tailleY;
+    
     public Plateau(int x, int y) {
-        this.gauffre = new int[x][y];
+        this.tailleX = x;
+        this.tailleY = y;
+        this.gauffre = new int[tailleX][tailleY];
         this.gauffre[0][0] = 1;
     }
 
@@ -42,6 +46,20 @@ public class Plateau {
                 this.gauffre[i][j] = -1;
             }
         }
+    }
+
+    /**
+     * @return the taillex
+     */
+    public int getTailleX() {
+        return tailleX;
+    }
+
+    /**
+     * @return the tailley
+     */
+    public int getTailleY() {
+        return tailleY;
     }
 
 }

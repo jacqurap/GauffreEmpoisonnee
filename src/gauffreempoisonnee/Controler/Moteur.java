@@ -25,6 +25,7 @@ public class Moteur {
         }
         else{
             getPartie().getPlateau().eatGauffre(x, y);
+            partie.incNbCoups();
             return true;
         }
     }
