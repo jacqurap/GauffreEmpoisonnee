@@ -12,14 +12,17 @@ import java.util.Random;
  *
  * @author jacqurap
  */
-public class Ia extends Joueur{
+public class Ia1 extends Ia {
     
-    
-    public Ia (String nom){
+    public Ia1 (String nom){
         super(nom);
     }
     
     public Point solve(Plateau plat){
-        return null;
+        Random r = new Random(System.currentTimeMillis());
+        
+        int newX = r.nextInt(plat.getTailleX());
+        int newY = r.nextInt(plat.getTailleY());
+        return new Point(newX,newY);
     }
 }

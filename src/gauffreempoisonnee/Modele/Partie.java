@@ -21,19 +21,19 @@ public class Partie {
     Stack<Plateau> refaire;
     
     /**
-     * Création d'une partie
+     * Crï¿½ation d'une partie
      */
     public Partie(){
         this.plateau = new Plateau();
         this.joueur1 = new Joueur("toto");
-        this.joueur2 = new Ia("titi");
+        this.joueur2 = new Ia1("titi");
         this.annuler = new Stack<>();
         this.refaire = new Stack<>();
         nbCoups = 0;
     }
 
     /**
-     * Récupère le plateau
+     * Rï¿½cupï¿½re le plateau
      * @return plateau
      */
     public Plateau getPlateau() {
@@ -41,7 +41,7 @@ public class Partie {
     }
 
     /**
-     *  Définition du plateau
+     *  Dï¿½finition du plateau
      * @param plateau le plateau a definir
      */
     public void setPlateau(Plateau plateau) {
