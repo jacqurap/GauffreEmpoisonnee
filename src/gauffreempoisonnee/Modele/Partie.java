@@ -21,7 +21,7 @@ public class Partie {
     Stack<Plateau> refaire;
     
     /**
-     * Cr�ation d'une partie
+     * Creation d'une partie
      */
     public Partie(){
         this.plateau = new Plateau();
@@ -33,7 +33,7 @@ public class Partie {
     }
 
     /**
-     * R�cup�re le plateau
+     * Recupere le plateau
      * @return plateau
      */
     public Plateau getPlateau() {
@@ -41,7 +41,7 @@ public class Partie {
     }
 
     /**
-     *  D�finition du plateau
+     *  Definition du plateau
      * @param plateau le plateau a definir
      */
     public void setPlateau(Plateau plateau) {

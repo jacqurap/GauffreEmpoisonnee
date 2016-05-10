@@ -15,7 +15,7 @@ public class Moteur {
     private Partie partie;
     
     /**
-     * Création d'un moteur
+     * Creation d'un moteur
      * @author jacqurap
      */
     public Moteur() {
@@ -24,9 +24,9 @@ public class Moteur {
     
     /**
      * Regarde si la case fait partie de la gaufre
-     * @param x la coordonnée horizontale
-     * @param y la coordonnée Verticale
-     * @return false s'il n'appartient pas à la gaufre, true sinon
+     * @param x la coordonnee horizontale
+     * @param y la coordonnee Verticale
+     * @return false s'il n'appartient pas a la gaufre, true sinon
      */
     
     public boolean actionMoteur(int x, int y) {
@@ -49,7 +49,7 @@ public class Moteur {
     }
 
     /**
-     * @param partie la partie à définir
+     * @param partie la partie a definir
      */
     public void setPartie(Partie partie) {
         this.partie = partie;

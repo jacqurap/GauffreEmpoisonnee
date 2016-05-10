@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 /**
- * Affichage de la fenêtre
+ * Affichage de la fenetre
  * @author jacqurap
  */
 public class Fenetre implements Runnable {

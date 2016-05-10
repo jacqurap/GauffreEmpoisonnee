@@ -20,8 +20,8 @@ public class AireDeJeu extends JComponent {
     Moteur moteur;
     
     /**
-     * Cr�ation d'une aire de jeu 
-     * @param moteur le moteur assign� � l'aire de jeu
+     * Creation d'une aire de jeu 
+     * @param moteur le moteur assigne a l'aire de jeu
      */
 
     public AireDeJeu(Moteur moteur) {

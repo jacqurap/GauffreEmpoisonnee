@@ -14,9 +14,9 @@ public class Plateau {
     private int[][] gauffre;
 
     /**
-     * Cr�ation du plateau, avec le poison dans le coin sup�rieur gauche, de taille x*y
-     * @param x le nombre de cases � l'horizontale
-     * @param y le nombre de cases � la verticale
+     * Creation du plateau, avec le poison dans le coin superieur gauche, de taille x*y
+     * @param x le nombre de cases a l'horizontale
+     * @param y le nombre de cases a la verticale
      */
     private int tailleX;
     private int tailleY;
@@ -29,7 +29,7 @@ public class Plateau {
     }
     
     /**
-     * Constructeur par d�faut du plateau
+     * Constructeur par defaut du plateau
      */
 
     public Plateau() {
@@ -44,16 +44,16 @@ public class Plateau {
     }
 
     /**
-     * @param gauffre la gauffre � d�finir
+     * @param gauffre la gauffre a definir
      */
     public void setGauffre(int[][] gauffre) {
         this.gauffre = gauffre;
     }
 
     /**
-     * Marque les cases d�j� mang�
-     * @param x coordonnee � l'horizontale
-     * @param y coordonnee � la verticale
+     * Marque les cases deja mange
+     * @param x coordonnee a l'horizontale
+     * @param y coordonnee a la verticale
      */
     
     public void eatGauffre(int x, int y) {

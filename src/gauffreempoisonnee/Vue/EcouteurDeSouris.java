@@ -21,9 +21,9 @@ class EcouteurDeSouris implements MouseListener {
     AireDeJeu aire;
     
     /**
-     * Création d'un écouteur de souris en fonction d'une aire de jeu
+     * Creation d'un ï¿½couteur de souris en fonction d'une aire de jeu
      * @author jacqurap
-     * @param aire l'aire de jeu concerné par l'écouteur
+     * @param aire l'aire de jeu concerne par l'ecouteur
      * @param moteur le moteur de l'aire de jeu
      */
    
