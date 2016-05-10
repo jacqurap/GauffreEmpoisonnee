@@ -31,7 +31,7 @@ public class Moteur {
     
     public boolean actionMoteur(int x, int y) {
         int[][] gauffreActuel = getPartie().getPlateau().getGauffre();
-        if(gauffreActuel[x][y] != 0){
+        if(gauffreActuel[x][y] != Plateau.CASEGAUFFRE){
             return false;
         }
         else{

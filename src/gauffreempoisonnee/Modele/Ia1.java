@@ -6,6 +6,7 @@
 package gauffreempoisonnee.Modele;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -18,11 +19,18 @@ public class Ia1 extends Ia {
         super(nom);
     }
     
+    @Override
     public Point solve(Plateau plat){
+        ArrayList<Point> list = new ArrayList<>();
+        for(int i=0; i<plat.getTailleX(); i++){
+            for(int j=0; j<plat.getTailleY(); j++){
+                if(plat.getGauffre()[i][j] == Plateau.CASEGAUFFRE)
+                    list.add(new Point(i,j));
+            }
+        }
         Random r = new Random(System.currentTimeMillis());
         
-        int newX = r.nextInt(plat.getTailleX());
-        int newY = r.nextInt(plat.getTailleY());
-        return new Point(newX,newY);
+        int newPoint = r.nextInt(list.size());
+        return list.get(newPoint);
     }
 }

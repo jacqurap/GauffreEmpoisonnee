@@ -84,7 +84,7 @@ public class AireDeJeu extends JComponent {
             Point coup;
             do{
                 coup = ((Ia)moteur.getPartie().getJoueur2()).solve(moteur.getPartie().getPlateau());
-            }while(moteur.actionMoteur((int)coup.getX(),(int)coup.getY()));
+            }while(!moteur.actionMoteur((int)coup.getX(),(int)coup.getY()));
             drawable.setColor(Color.DARK_GRAY);
         drawable.fillRect(0, 0, 400, 400);
         drawable.setColor(Color.black);

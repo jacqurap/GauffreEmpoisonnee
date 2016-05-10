@@ -5,12 +5,17 @@
  */
 package gauffreempoisonnee.Modele;
 
+
 /**
  * Le plateau de jeu
  * @author jacqurap
  */
 public class Plateau {
 
+    public final static int CASEPOISON = 1;
+    public final static int CASEGAUFFRE = 0;
+    public final static int CASEVIDE = -1;
+    
     private int[][] gauffre;
 
     /**

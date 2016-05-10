@@ -6,6 +6,7 @@
 package gauffreempoisonnee.Modele;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -18,20 +19,36 @@ public class Ia2 extends Ia {
         super(nom);
     }
     
+    @Override
     public Point solve(Plateau plat){
-        if(plat.getGauffre()[2][2] != -1){
-            Random r = new Random(System.currentTimeMillis());
+        if(plat.getGauffre()[1][1] != Plateau.CASEVIDE){
+            ArrayList<Point> list = new ArrayList<>();
+        for(int i=0; i<plat.getTailleX(); i++){
+            for(int j=0; j<plat.getTailleY(); j++){
+                if(plat.getGauffre()[i][j] == Plateau.CASEGAUFFRE && !(i==0 && j==1 || i==1 && j==0))
+                    list.add(new Point(i,j));
+            }
+        }
+        Random r = new Random(System.currentTimeMillis());
         
-            int newX = r.nextInt(plat.getTailleX());
-            int newY = r.nextInt(plat.getTailleY());
-            return new Point(newX,newY);
+        int newPoint = r.nextInt(list.size());
+        return list.get(newPoint);
         }
         else{
-            if(plat.getTailleX() == 1){
+            if(plat.getGauffre()[1][0] == Plateau.CASEVIDE){
                 return new Point(0, 1);
             }
-            else if(plat.getTailleY() == 1){
+            else if(plat.getGauffre()[0][1] == Plateau.CASEVIDE){
                 return new Point(1, 0);
+            }
+            else if(plat.getGauffre()[0][2] == Plateau.CASEVIDE && plat.getGauffre()[2][0] == Plateau.CASEVIDE){
+                Random r = new Random(System.currentTimeMillis());
+                if(r.nextInt()%2 == 0){
+                    return new Point(1, 0);
+                }
+                else{
+                    return new Point(0, 1);
+                }
             }
             else{
                 Random r = new Random(System.currentTimeMillis());

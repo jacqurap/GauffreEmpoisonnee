@@ -26,7 +26,7 @@ public class Partie {
     public Partie(){
         this.plateau = new Plateau();
         this.joueur1 = new Joueur("toto");
-        this.joueur2 = new Ia1("titi");
+        this.joueur2 = new Ia2("titi");
         this.annuler = new Stack<>();
         this.refaire = new Stack<>();
         nbCoups = 0;
