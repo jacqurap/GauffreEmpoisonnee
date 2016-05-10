@@ -12,18 +12,15 @@ package gauffreempoisonnee.Modele;
 public class Plateau {
 
     private int[][] gauffre;
-<<<<<<< HEAD
 
     /**
-     * Création du plateau, avec le poison dans le coin supérieur gauche, de taille x*y
-     * @param x le nombre de cases à l'horizontale
-     * @param y le nombre de cases à la verticale
+     * Crï¿½ation du plateau, avec le poison dans le coin supï¿½rieur gauche, de taille x*y
+     * @param x le nombre de cases ï¿½ l'horizontale
+     * @param y le nombre de cases ï¿½ la verticale
      */
-=======
     private int tailleX;
     private int tailleY;
     
->>>>>>> master
     public Plateau(int x, int y) {
         this.tailleX = x;
         this.tailleY = y;
@@ -32,7 +29,7 @@ public class Plateau {
     }
     
     /**
-     * Constructeur par défaut du plateau
+     * Constructeur par dï¿½faut du plateau
      */
 
     public Plateau() {
@@ -47,16 +44,16 @@ public class Plateau {
     }
 
     /**
-     * @param gauffre la gauffre à définir
+     * @param gauffre la gauffre ï¿½ dï¿½finir
      */
     public void setGauffre(int[][] gauffre) {
         this.gauffre = gauffre;
     }
 
     /**
-     * Marque les cases déjà mangé
-     * @param x coordonnee à l'horizontale
-     * @param y coordonnee à la verticale
+     * Marque les cases dï¿½jï¿½ mangï¿½
+     * @param x coordonnee ï¿½ l'horizontale
+     * @param y coordonnee ï¿½ la verticale
      */
     
     public void eatGauffre(int x, int y) {
