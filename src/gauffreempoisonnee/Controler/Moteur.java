@@ -5,10 +5,12 @@
  */
 package gauffreempoisonnee.Controler;
 import gauffreempoisonnee.Modele.*;
+import gauffreempoisonnee.Vue.*;
+import gauffreempoisonnee.Controler.*;
 
 
 /**
- * Le Moteur (Arbitre)
+ *
  * @author jacqurap
  */
 public class Moteur {
@@ -31,18 +33,25 @@ public class Moteur {
     
     public boolean actionMoteur(int x, int y) {
         int[][] gauffreActuel = getPartie().getPlateau().getGauffre();
-        if(gauffreActuel[x][y] != Plateau.CASEGAUFFRE){
+        if(gauffreActuel[x][y] != 0){
             return false;
         }
         else{
-            getPartie().getPlateau().eatGauffre(x, y);
-            partie.incNbCoups();
+            Plateau newPlateau = new Plateau();
+            newPlateau.setGauffre(gauffreActuel);
+            getPartie().getAnnuler().push(newPlateau);
+            getPartie().getRefaire().clear();
+            partie.getPlateau().eatGauffre(x, y);
+            getPartie().getPlateau().setGauffre(partie.getPlateau().getGauffre());
+            
+            
+            getPartie().printStacks();
             return true;
         }
     }
 
     /**
-     * @return la partie
+     * @return the partie
      */
     public Partie getPartie() {
         return partie;

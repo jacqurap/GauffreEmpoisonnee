@@ -10,34 +10,35 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 import gauffreempoisonnee.Controler.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * Actions diverses de la souris
+ *
  * @author jacqurap
  */
-class EcouteurDeSouris implements MouseListener {
+class EcouteurDeSouris implements MouseListener,Cloneable {
     
-    Moteur moteur;
-    AireDeJeu aire;
+    public Moteur moteur;
+    public AireDeJeu aire;
+    public JMenuItem btnAnnuler;
+    public JMenuItem btnRefaire;
     
-    /**
-     * Creation d'un ecouteur de souris en fonction d'une aire de jeu
-     * @author jacqurap
-     * @param aire l'aire de jeu concerne par l'ecouteur
-     * @param moteur le moteur de l'aire de jeu
-     */
-   
-    public EcouteurDeSouris(Moteur moteur, AireDeJeu aire) {
+    public EcouteurDeSouris(Moteur moteur, AireDeJeu aire, JMenuItem annuler, JMenuItem refaire) {
         this.moteur = moteur;
         this.aire = aire;
+        this.btnAnnuler = annuler;
+        this.btnRefaire = refaire;
     }
     
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(moteur.actionMoteur(e.getX()/50,e.getY()/50)) {
-            aire.repaint();
-        }
+            if (aire.moteur.actionMoteur(e.getX() / 50, e.getY() / 50)) {
+                aire.repaint();
+                btnAnnuler.setEnabled(true);
+                btnRefaire.setEnabled(false);
+            }
     }
 
     @Override

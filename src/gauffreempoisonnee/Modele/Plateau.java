@@ -10,7 +10,7 @@ package gauffreempoisonnee.Modele;
  * Le plateau de jeu
  * @author jacqurap
  */
-public class Plateau {
+public class Plateau implements Cloneable {
 
     public final static int CASEPOISON = 1;
     public final static int CASEGAUFFRE = 0;
@@ -33,6 +33,17 @@ public class Plateau {
         this.gauffre[0][0] = 1;
     }
     
+    public Object clone() {
+        Plateau copie = null;
+        try {
+            copie = (Plateau) super.clone();
+        }
+        catch(CloneNotSupportedException e) {
+            e.printStackTrace(System.err);
+        }
+        return copie;
+    }
+    
     /**
      * Constructeur par defaut du plateau
      */
@@ -51,8 +62,12 @@ public class Plateau {
     /**
      * @param gauffre la gauffre a definir
      */
-    public void setGauffre(int[][] gauffre) {
-        this.gauffre = gauffre;
+    public void setGauffre(int[][] g){
+        for(int i=0; i<8;i++){
+            for(int j=0;j<8;j++){
+                gauffre[i][j] = g[i][j];
+            }
+        }
     }
 
     /**

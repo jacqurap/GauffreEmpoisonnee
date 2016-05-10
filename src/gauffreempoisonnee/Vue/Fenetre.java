@@ -5,13 +5,15 @@
  */
 package gauffreempoisonnee.Vue;
 
-import gauffreempoisonnee.Controler.Moteur;
+import gauffreempoisonnee.Modele.*;
+import gauffreempoisonnee.Vue.*;
+import gauffreempoisonnee.Controler.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 
 /**
- * Affichage de la fenetre
+ *
  * @author jacqurap
  */
 public class Fenetre implements Runnable {
@@ -22,11 +24,28 @@ public class Fenetre implements Runnable {
         JFrame frame = new JFrame();
         AireDeJeu aire = new AireDeJeu(moteur); 
         frame.add(aire);
-        aire.addMouseListener(new EcouteurDeSouris(moteur, aire));
         
+        JMenu menu_file = new JMenu("Edition");
+
+        JMenuItem item_annuler = new JMenuItem("Annuler");
+        menu_file.add(item_annuler);
+        item_annuler.setEnabled(false);
+
+        JMenuItem item_refaire = new JMenuItem("Refaire");
+        menu_file.add(item_refaire);
+        item_refaire.setEnabled(false);
+
+        aire.addMouseListener(new EcouteurDeSouris(moteur, aire, item_annuler, item_refaire));
+        item_annuler.addActionListener(new AnnulerAction( aire, item_annuler, item_refaire));
+        item_refaire.addActionListener(new RefaireAction(aire, item_annuler, item_refaire));
+
+        JMenuBar barre = new JMenuBar();
+        barre.add(menu_file);
+        frame.setJMenuBar(barre);
+
         //frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450,450);
+        frame.setSize(450, 450);
         frame.setVisible(true);
 
     }

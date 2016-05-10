@@ -55,7 +55,7 @@ public class AireDeJeu extends JComponent {
                 }
             }
         }
-        if(moteur.getPartie().getJoueur1() instanceof Ia && moteur.getPartie().getNbCoups()%2==0){
+        /*if(moteur.getPartie().getJoueur1() instanceof Ia && moteur.getPartie().getNbCoups()%2==0){
             Point coup;
             do{
                 coup = ((Ia)moteur.getPartie().getJoueur1()).solve(moteur.getPartie().getPlateau());
@@ -104,7 +104,7 @@ public class AireDeJeu extends JComponent {
                 }
             }
         }
-        }
+        }*/
     }
 
 }

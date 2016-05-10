@@ -5,6 +5,11 @@
  */
 package gauffreempoisonnee.Modele;
 
+import gauffreempoisonnee.Modele.*;
+import gauffreempoisonnee.Vue.*;
+import gauffreempoisonnee.Controler.*;
+import java.util.Iterator;
+
 import java.util.Stack;
 
 /**
@@ -17,19 +22,20 @@ public class Partie {
     private Joueur joueur2;
     private Plateau plateau;
     private int nbCoups;
-    Stack<Plateau> annuler;
-    Stack<Plateau> refaire;
+    private Stack<Plateau> annuler;
+    private Stack<Plateau> refaire;
+    private Plateau gauffre;
     
     /**
      * Creation d'une partie
      */
     public Partie(){
         this.plateau = new Plateau();
-        this.joueur1 = new Joueur("toto");
-        this.joueur2 = new Ia2("titi");
+        this.joueur1 = new Humain("toto");
+        this.joueur2 = new Humain("titi");
         this.annuler = new Stack<>();
         this.refaire = new Stack<>();
-        nbCoups = 0;
+        this.gauffre = new Plateau();
     }
 
     /**
@@ -49,26 +55,42 @@ public class Partie {
     }
 
     /**
-     * @return le joueur1
+     * @return the annuler
      */
-    public Joueur getJoueur1() {
-        return joueur1;
+    public Stack<Plateau> getAnnuler() {
+        return annuler;
     }
 
     /**
-     * @return le joueur2
+     * @return the refaire
      */
-    public Joueur getJoueur2() {
-        return joueur2;
+    public Stack<Plateau> getRefaire() {
+        return refaire;
     }
 
-    /**
-     * @return nbCoups, le nombre de coups
-     */
-    public int getNbCoups() {
-        return nbCoups;
+    public void printStacks() {
+        Iterator<Plateau> iterA = annuler.iterator();
+        Iterator<Plateau> iterR = refaire.iterator();
+        System.out.println("Pile annuler :");
+        while (iterA.hasNext()) {
+            int[][] g = iterA.next().getGauffre();
+            for (int i = 0; i < 8; i++) {
+                System.out.println();
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(g[j][i] + "\t");
+                }
+            }
+        }
+        System.out.println("\nPile refaire :");
+        while (iterR.hasNext()) {
+            int[][] g = iterR.next().getGauffre();
+            for (int i = 0; i < 8; i++) {
+                System.out.println();
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(g[j][i] + "\t");
+                }
+            }
+        }
     }
-    public void incNbCoups(){
-        nbCoups++;
-    }
+
 }
