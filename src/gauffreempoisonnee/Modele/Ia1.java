@@ -10,15 +10,27 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
+ * I.A Facile reprenant le modele de I.A.
  * @author jacqurap
  */
 public class Ia1 extends Ia {
+	
+	/**
+	 * Creation de L'I.A facile 
+	 * @author jacqurap
+	 * @param nom le nom de l'I.A
+	 */
     
     public Ia1 (String nom){
         super(nom);
     }
     
+    /**
+	 * Determine les coups de l'I.A facile
+	 * @author jacqurap
+	 * @param plat le plateau concernee
+	 * @return la case a cliquer
+	 */
     @Override
     public Point solve(Plateau plat){
         ArrayList<Point> list = new ArrayList<>();

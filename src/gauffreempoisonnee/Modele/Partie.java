@@ -8,7 +8,7 @@ package gauffreempoisonnee.Modele;
 import java.util.Stack;
 
 /**
- * La partie
+ * La Partie
  * @author jacqurap
  */
 
@@ -49,21 +49,21 @@ public class Partie {
     }
 
     /**
-     * @return the joueur1
+     * @return le joueur1
      */
     public Joueur getJoueur1() {
         return joueur1;
     }
 
     /**
-     * @return the joueur2
+     * @return le joueur2
      */
     public Joueur getJoueur2() {
         return joueur2;
     }
 
     /**
-     * @return the nbCoups
+     * @return nbCoups, le nombre de coups
      */
     public int getNbCoups() {
         return nbCoups;

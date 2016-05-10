@@ -70,14 +70,16 @@ public class Plateau {
     }
 
     /**
-     * @return the taillex
+     * @return tailleX, le nombre de case -1 en x
+     * (si x = 10 alors getTailleX() = 9)
      */
     public int getTailleX() {
         return tailleX;
     }
 
     /**
-     * @return the tailley
+     * @return tailleY, le nombre de case -1 en y
+     * (si y = 10 alors getTailleY() = 9)
      */
     public int getTailleY() {
         return tailleY;

@@ -10,14 +10,27 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
+ * I.A Moyenne reprenant le modele de I.A
  * @author jacqurap
  */
 public class Ia2 extends Ia {
     
+	/**
+	 * Creation de L'I.A moyenne
+	 * @author jacqurap
+	 * @param nom le nom de l'I.A
+	 */
+	
     public Ia2 (String nom){
         super(nom);
     }
+    
+    /**
+	 * Determine les coups de l'I.A moyenne
+	 * @author jacqurap
+	 * @param plat le plateau concernee
+	 * @return la case a cliquer
+	 */
     
     @Override
     public Point solve(Plateau plat){

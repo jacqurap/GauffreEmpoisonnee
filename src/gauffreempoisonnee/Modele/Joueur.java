@@ -6,11 +6,17 @@
 package gauffreempoisonnee.Modele;
 
 /**
- *
+ * le Joueur (I.A ou Humain)
  * @author jacqurap
  */
 public class Joueur {
    private String nom; 
+   
+   /**
+	 * Creation du joueur
+	 * @author jacqurap
+	 * @param nom le nom du joueur
+	 */
    
    public Joueur(String nom){
        this.nom = nom;
