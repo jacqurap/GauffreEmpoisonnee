@@ -52,13 +52,15 @@ public class Plateau implements Cloneable {
     /**
      * @return la gauffre
      */
+    
     public int[][] getGauffre() {
         return gauffre;
     }
 
     /**
-     * @param gauffre la gauffre a definir
+     * @param g la gauffre a definir
      */
+    
     public void setGauffre(int[][] g){
         for(int i=0; i<tailleX;i++){
             for(int j=0;j<tailleY;j++){
@@ -79,6 +81,11 @@ public class Plateau implements Cloneable {
                 this.gauffre[i][j] = -1;
             }
         }
+		if(this.gauffre[1][1] == -1 && this.gauffre[0][1] == -1){
+			System.out.println("GAME OVER");
+			return false;
+		}
+		return true;
     }
 
     /**

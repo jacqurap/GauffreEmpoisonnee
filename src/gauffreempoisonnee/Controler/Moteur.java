@@ -33,7 +33,8 @@ public class Moteur {
     
     public boolean actionMoteur(int x, int y) {
         int[][] gauffreActuel = getPartie().getPlateau().getGauffre();
-        if(gauffreActuel[x][y] != Plateau.CASEGAUFFRE){
+		boolean enCours;
+        if(gauffreActuel[x][y] != 0){
             return false;
         }
         else{
@@ -41,11 +42,18 @@ public class Moteur {
             newPlateau.setGauffre(gauffreActuel);
             getPartie().getAnnuler().push(newPlateau);
             getPartie().getRefaire().clear();
-            partie.getPlateau().eatGauffre(x, y);
+            enCours = partie.getPlateau().eatGauffre(x, y);
             getPartie().getPlateau().setGauffre(partie.getPlateau().getGauffre());
             partie.incNbCoups();
             
-            getPartie().printStacks();
+            //getPartie().printStacks();
+			if(!enCours){
+				if(this.partie.getNbCoups()%2 == 0){
+					System.out.println(this.partie.getJoueur1().getNom() + " WINNER !");
+				}else{
+					System.out.println(this.partie.getJoueur2().getNom() + " WINNER !");
+				}
+			}
             return true;
         }
     }

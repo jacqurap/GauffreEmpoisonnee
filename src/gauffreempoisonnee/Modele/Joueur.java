@@ -21,4 +21,8 @@ public class Joueur {
    public Joueur(String nom){
        this.nom = nom;
    }
+   
+   public String getNom(){
+	   return this.nom;
+   }
 }

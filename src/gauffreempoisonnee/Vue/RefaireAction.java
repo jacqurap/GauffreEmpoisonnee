@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 
 /**
- *
+ * Actions du bouton Refaire
  * @author bochatom
  */
 class RefaireAction implements ActionListener {
@@ -21,6 +21,13 @@ class RefaireAction implements ActionListener {
     private AireDeJeu aire;
     private JMenuItem btnAnnuler;
     private JMenuItem btnRefaire;
+    
+    /**
+     * Création d'une action pour refaire
+     * @param aire l'aire de jeu
+     * @param annuler le bouton annuler
+     * @param refaire le bouton refaire
+     */
 
     public RefaireAction(AireDeJeu aire, JMenuItem annuler, JMenuItem refaire) {
         this.aire = aire;
@@ -65,22 +72,28 @@ class RefaireAction implements ActionListener {
     }
 
     /**
-     * @return the aire
+     * Recupere l'aire de jeu
+     * @return aire, l'aire de jeu
      */
+    
     public AireDeJeu getAire() {
         return aire;
     }
 
     /**
-     * @return the btnAnnuler
+     * Recupere le bouton annuler
+     * @return btnAnnuler, le bouton annuler
      */
+    
     public JMenuItem getBtnAnnuler() {
         return btnAnnuler;
     }
 
     /**
-     * @return the btnRefaire
+     * Recupere le bouton refaire
+     * @return btnRefaire, le bouton refaire
      */
+    
     public JMenuItem getBtnRefaire() {
         return btnRefaire;
     }

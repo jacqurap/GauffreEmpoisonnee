@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 
 /**
- *
+ * Actions du bouton Annuler
  * @author bochatom
  */
 class AnnulerAction implements ActionListener {
@@ -27,6 +27,7 @@ class AnnulerAction implements ActionListener {
         this.btnAnnuler = annuler;
         this.btnRefaire = refaire;
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -71,15 +72,19 @@ public AireDeJeu getAire() {
     }
 
     /**
-     * @return the btnAnnuler
+     * Recupere le bouton annuler
+     * @return btnAnnuler, le bouton annuler
      */
+    
     public JMenuItem getBtnAnnuler() {
         return btnAnnuler;
     }
 
     /**
-     * @return the btnRefaire
+     * Recupere le bouton refaire
+     * @return btnRefaire, le bouton refaire
      */
+    
     public JMenuItem getBtnRefaire() {
         return btnRefaire;
     }

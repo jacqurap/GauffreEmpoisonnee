@@ -19,7 +19,7 @@ import java.util.Stack;
 
 public class Partie {
     private Joueur joueur1;
-    private Joueur joueur2;
+	private Joueur joueur2;
     private Plateau plateau;
     private int nbCoups;
     private Stack<Plateau> annuler;
@@ -55,19 +55,25 @@ public class Partie {
     }
 
     /**
-     * @return the annuler
+     * Pile historique annulation
+     * @return annuler, la pile annuler
      */
     public Stack<Plateau> getAnnuler() {
         return annuler;
     }
 
     /**
-     * @return the refaire
+     * Pile historique refaire
+     * @return annuler, la pile refaire
      */
     public Stack<Plateau> getRefaire() {
         return refaire;
     }
 
+    /**
+     * Affiche le contenu des piles annuler et refaire
+     */
+    
     public void printStacks() {
         /*
         Iterator<Plateau> iterA = annuler.iterator();
@@ -93,6 +99,10 @@ public class Partie {
             }
         }*/
     }
+    
+    public Joueur getJoueur1() {
+		return joueur1;
+	}
 
     /**
      * @return the joueur1
