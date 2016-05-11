@@ -32,25 +32,22 @@ public class Plateau implements Cloneable {
         this.gauffre = new int[tailleX][tailleY];
         this.gauffre[0][0] = 1;
     }
-    
-    public Object clone() {
-        Plateau copie = null;
-        try {
-            copie = (Plateau) super.clone();
-        }
-        catch(CloneNotSupportedException e) {
-            e.printStackTrace(System.err);
-        }
-        return copie;
-    }
-    
     /**
      * Constructeur par defaut du plateau
      */
 
     public Plateau() {
-        this(8, 8);
+        this(3, 3);
     }
+    
+    public Plateau clone() {
+        Plateau copie = new Plateau(this.tailleX, this.tailleY);
+        copie.setGauffre(this.gauffre);
+        
+        return copie;
+    }
+    
+    
 
     /**
      * @return la gauffre
@@ -63,8 +60,8 @@ public class Plateau implements Cloneable {
      * @param gauffre la gauffre a definir
      */
     public void setGauffre(int[][] g){
-        for(int i=0; i<8;i++){
-            for(int j=0;j<8;j++){
+        for(int i=0; i<tailleX;i++){
+            for(int j=0;j<tailleY;j++){
                 gauffre[i][j] = g[i][j];
             }
         }
@@ -77,8 +74,8 @@ public class Plateau implements Cloneable {
      */
     
     public void eatGauffre(int x, int y) {
-        for (int i = x; i < 8; i++) {
-            for (int j = y; j < 8; j++) {
+        for (int i = x; i < tailleX; i++) {
+            for (int j = y; j < tailleY; j++) {
                 this.gauffre[i][j] = -1;
             }
         }

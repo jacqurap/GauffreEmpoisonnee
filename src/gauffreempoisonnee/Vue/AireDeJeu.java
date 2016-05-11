@@ -13,17 +13,18 @@ import java.awt.image.BufferedImage;
 
 /**
  * Le plateau graphique
+ *
  * @author jacqurap
  */
 public class AireDeJeu extends JComponent {
 
     Moteur moteur;
-    
+
     /**
-     * Creation d'une aire de jeu 
+     * Creation d'une aire de jeu
+     *
      * @param moteur le moteur assigne a l'aire de jeu
      */
-
     public AireDeJeu(Moteur moteur) {
         this.moteur = moteur;
 
@@ -31,80 +32,90 @@ public class AireDeJeu extends JComponent {
 
     /**
      * Dessiner l'aire de jeu
+     *
      * @param g le moteur graphique pour l'aire de jeu
      */
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D drawable = (Graphics2D) g;
         drawable.setColor(Color.DARK_GRAY);
-        drawable.fillRect(0, 0, 400, 400);
+        drawable.fillRect(0, 0, this.getWidth(), this.getHeight());
         drawable.setColor(Color.black);
-        for (int i = 1; i < 8; i++) {
-            drawable.drawLine(i * 50, 0, i * 50, 400);
-            drawable.drawLine(0, i * 50, 400, i * 50);
-        }
-        drawable.setColor(Color.pink);
-        drawable.fillRect(0, 0, 50, 50);
-
-        drawable.setColor(Color.LIGHT_GRAY);
         Plateau plateau = moteur.getPartie().getPlateau();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if(plateau.getGauffre()[i][j]==-1) {
-                    drawable.fillRect(i*50, j*50, 50, 50);
-                }
-            }
+        for (int i = 1; i < plateau.getTailleX(); i++) {
+            drawable.drawLine(i * (this.getWidth() / plateau.getTailleX()), 0, i * (this.getWidth() / plateau.getTailleX()), this.getHeight());
         }
-        /*if(moteur.getPartie().getJoueur1() instanceof Ia && moteur.getPartie().getNbCoups()%2==0){
-            Point coup;
-            do{
-                coup = ((Ia)moteur.getPartie().getJoueur1()).solve(moteur.getPartie().getPlateau());
-            }while(!moteur.actionMoteur((int)coup.getX(),(int)coup.getY()));
-            drawable.setColor(Color.DARK_GRAY);
-        drawable.fillRect(0, 0, 400, 400);
-        drawable.setColor(Color.black);
-        for (int i = 1; i < 8; i++) {
-            drawable.drawLine(i * 50, 0, i * 50, 400);
-            drawable.drawLine(0, i * 50, 400, i * 50);
+        for (int j = 1; j < plateau.getTailleY(); j++) {
+            drawable.drawLine(0, j * (this.getHeight() / plateau.getTailleY()), this.getWidth(), j * (this.getHeight() / plateau.getTailleY()));
         }
         drawable.setColor(Color.pink);
-        drawable.fillRect(0, 0, 50, 50);
+        drawable.fillRect(0, 0, (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
 
         drawable.setColor(Color.LIGHT_GRAY);
-        plateau = moteur.getPartie().getPlateau();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if(plateau.getGauffre()[i][j]==-1) {
-                    drawable.fillRect(i*50, j*50, 50, 50);
+        //System.out.print("tailleX :" + plateau.getTailleX() + "\ttailleY :" + plateau.getTailleY() + "\n");
+        for (int i = 0; i < plateau.getTailleX(); i++) {
+            for (int j = 0; j < plateau.getTailleY(); j++) {
+                if (plateau.getGauffre()[i][j] == -1) {
+                    drawable.fillRect(i * (this.getWidth() / plateau.getTailleX()), j * (this.getHeight() / plateau.getTailleY()), (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
                 }
             }
         }
-        }
-        if(moteur.getPartie().getJoueur2() instanceof Ia && moteur.getPartie().getNbCoups()%2==1){
+        if (moteur.getPartie().getJoueur1() instanceof Ia && moteur.getPartie().getNbCoups() % 2 == 0) {
             Point coup;
-            do{
-                coup = ((Ia)moteur.getPartie().getJoueur2()).solve(moteur.getPartie().getPlateau());
-            }while(!moteur.actionMoteur((int)coup.getX(),(int)coup.getY()));
-            drawable.setColor(Color.DARK_GRAY);
-        drawable.fillRect(0, 0, 400, 400);
-        drawable.setColor(Color.black);
-        for (int i = 1; i < 8; i++) {
-            drawable.drawLine(i * 50, 0, i * 50, 400);
-            drawable.drawLine(0, i * 50, 400, i * 50);
-        }
-        drawable.setColor(Color.pink);
-        drawable.fillRect(0, 0, 50, 50);
 
-        drawable.setColor(Color.LIGHT_GRAY);
-        plateau = moteur.getPartie().getPlateau();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if(plateau.getGauffre()[i][j]==-1) {
-                    drawable.fillRect(i*50, j*50, 50, 50);
+            do {
+                coup = ((Ia) moteur.getPartie().getJoueur1()).solve(moteur.getPartie().getPlateau());
+            } while (!moteur.actionMoteur((int) coup.getX(), (int) coup.getY()));
+            drawable.setColor(Color.DARK_GRAY);
+            drawable.fillRect(0, 0, this.getWidth(), this.getHeight());
+            drawable.setColor(Color.black);
+            for (int i = 1; i < plateau.getTailleX(); i++) {
+                drawable.drawLine(i * (this.getWidth() / plateau.getTailleX()), 0, i * (this.getWidth() / plateau.getTailleX()), this.getHeight());
+            }
+            for (int j = 1; j < plateau.getTailleY(); j++) {
+                drawable.drawLine(0, j * (this.getHeight() / plateau.getTailleY()), this.getWidth(), j * (this.getHeight() / plateau.getTailleY()));
+            }
+            drawable.setColor(Color.pink);
+            drawable.fillRect(0, 0, (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
+
+            drawable.setColor(Color.LIGHT_GRAY);
+            plateau = moteur.getPartie().getPlateau();
+            for (int i = 0; i < plateau.getTailleX(); i++) {
+                for (int j = 0; j < plateau.getTailleY(); j++) {
+                    if (plateau.getGauffre()[i][j] == -1) {
+                        drawable.fillRect(i * (this.getWidth() / plateau.getTailleX()), j * (this.getHeight() / plateau.getTailleY()), (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
+                    }
                 }
             }
         }
-        }*/
+        if (moteur.getPartie().getJoueur2() instanceof Ia && moteur.getPartie().getNbCoups() % 2 == 1) {
+            Point coup;
+            System.out.println("ia joueur 2");
+            do {
+                coup = ((Ia) moteur.getPartie().getJoueur2()).solve(moteur.getPartie().getPlateau());
+            } while (!moteur.actionMoteur((int) coup.getX(), (int) coup.getY()));
+            drawable.setColor(Color.DARK_GRAY);
+            drawable.fillRect(0, 0, this.getWidth(), this.getHeight());
+            drawable.setColor(Color.black);
+            for (int i = 1; i < plateau.getTailleX(); i++) {
+                drawable.drawLine(i * (this.getWidth() / plateau.getTailleX()), 0, i * (this.getWidth() / plateau.getTailleX()), this.getHeight());
+            }
+            for (int j = 1; j < plateau.getTailleY(); j++) {
+                drawable.drawLine(0, j * (this.getHeight() / plateau.getTailleY()), this.getWidth(), j * (this.getHeight() / plateau.getTailleY()));
+            }
+            drawable.setColor(Color.pink);
+            drawable.fillRect(0, 0, (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
+
+            drawable.setColor(Color.LIGHT_GRAY);
+            plateau = moteur.getPartie().getPlateau();
+            for (int i = 0; i < plateau.getTailleX(); i++) {
+                for (int j = 0; j < plateau.getTailleY(); j++) {
+                    if (plateau.getGauffre()[i][j] == -1) {
+                        drawable.fillRect(i * (this.getWidth() / plateau.getTailleX()), j * (this.getHeight() / plateau.getTailleY()), (this.getWidth() / plateau.getTailleX()), (this.getHeight() / plateau.getTailleY()));
+                    }
+                }
+            }
+        }
     }
 
 }

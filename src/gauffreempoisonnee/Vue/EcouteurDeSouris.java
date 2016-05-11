@@ -34,7 +34,7 @@ class EcouteurDeSouris implements MouseListener,Cloneable {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-            if (aire.moteur.actionMoteur(e.getX() / 50, e.getY() / 50)) {
+            if (aire.moteur.actionMoteur(e.getX() / (aire.getWidth() / moteur.getPartie().getPlateau().getTailleX()), e.getY() / (aire.getHeight() / moteur.getPartie().getPlateau().getTailleY()))) {
                 aire.repaint();
                 btnAnnuler.setEnabled(true);
                 btnRefaire.setEnabled(false);

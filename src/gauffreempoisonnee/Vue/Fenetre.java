@@ -45,7 +45,7 @@ public class Fenetre implements Runnable {
 
         //frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 450);
+        frame.setSize(1080, 720);
         frame.setVisible(true);
 
     }

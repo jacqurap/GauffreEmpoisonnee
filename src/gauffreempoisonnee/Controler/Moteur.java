@@ -33,7 +33,7 @@ public class Moteur {
     
     public boolean actionMoteur(int x, int y) {
         int[][] gauffreActuel = getPartie().getPlateau().getGauffre();
-        if(gauffreActuel[x][y] != 0){
+        if(gauffreActuel[x][y] != Plateau.CASEGAUFFRE){
             return false;
         }
         else{
@@ -43,7 +43,7 @@ public class Moteur {
             getPartie().getRefaire().clear();
             partie.getPlateau().eatGauffre(x, y);
             getPartie().getPlateau().setGauffre(partie.getPlateau().getGauffre());
-            
+            partie.incNbCoups();
             
             getPartie().printStacks();
             return true;

@@ -32,7 +32,7 @@ public class Partie {
     public Partie(){
         this.plateau = new Plateau();
         this.joueur1 = new Humain("toto");
-        this.joueur2 = new Humain("titi");
+        this.joueur2 = new Ia3("titi");
         this.annuler = new Stack<>();
         this.refaire = new Stack<>();
         this.gauffre = new Plateau();
@@ -69,14 +69,15 @@ public class Partie {
     }
 
     public void printStacks() {
+        /*
         Iterator<Plateau> iterA = annuler.iterator();
         Iterator<Plateau> iterR = refaire.iterator();
         System.out.println("Pile annuler :");
         while (iterA.hasNext()) {
             int[][] g = iterA.next().getGauffre();
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < plateau.getTailleX(); i++) {
                 System.out.println();
-                for (int j = 0; j < 8; j++) {
+                for (int j = 0; j < plateau.getTailleY(); j++) {
                     System.out.print(g[j][i] + "\t");
                 }
             }
@@ -84,13 +85,40 @@ public class Partie {
         System.out.println("\nPile refaire :");
         while (iterR.hasNext()) {
             int[][] g = iterR.next().getGauffre();
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < plateau.getTailleX(); i++) {
                 System.out.println();
-                for (int j = 0; j < 8; j++) {
+                for (int j = 0; j < plateau.getTailleY(); j++) {
                     System.out.print(g[j][i] + "\t");
                 }
             }
-        }
+        }*/
     }
 
+    /**
+     * @return the joueur1
+     */
+    public Joueur getJoueur1() {
+        return joueur1;
+    }
+
+    /**
+     * @return the joueur2
+     */
+    public Joueur getJoueur2() {
+        return joueur2;
+    }
+
+    /**
+     * @return the nbCoups
+     */
+    public int getNbCoups() {
+        return nbCoups;
+    }
+
+    public void incNbCoups(){
+        nbCoups++;
+    }
+    public void decNbCoups(){
+        nbCoups--;
+    }
 }

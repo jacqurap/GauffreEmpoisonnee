@@ -33,7 +33,7 @@ class RefaireAction implements ActionListener {
         int[][] gauffreActuel = aire.moteur.getPartie().getPlateau().getGauffre();
         Plateau newPlateau = new Plateau();
         newPlateau.setGauffre(gauffreActuel);
-        
+
         Plateau plateau = aire.moteur.getPartie().getRefaire().pop();
         aire.moteur.getPartie().getAnnuler().push(newPlateau);
         aire.moteur.getPartie().getPlateau().setGauffre(plateau.getGauffre());
@@ -42,6 +42,25 @@ class RefaireAction implements ActionListener {
             getBtnRefaire().setEnabled(false);
         }
         aire.moteur.getPartie().printStacks();
+        aire.moteur.getPartie().incNbCoups();
+
+        if ((aire.moteur.getPartie().getJoueur1() instanceof Ia) || (aire.moteur.getPartie().getJoueur2() instanceof Ia)) {
+            gauffreActuel = aire.moteur.getPartie().getPlateau().getGauffre();
+            newPlateau = new Plateau();
+            newPlateau.setGauffre(gauffreActuel);
+
+            plateau = aire.moteur.getPartie().getRefaire().pop();
+            aire.moteur.getPartie().getAnnuler().push(newPlateau);
+            aire.moteur.getPartie().getPlateau().setGauffre(plateau.getGauffre());
+            getBtnAnnuler().setEnabled(true);
+            if (aire.moteur.getPartie().getRefaire().empty()) {
+                getBtnRefaire().setEnabled(false);
+            }
+            aire.moteur.getPartie().printStacks();
+            aire.moteur.getPartie().incNbCoups();
+
+        }
+
         aire.repaint();
     }
 
