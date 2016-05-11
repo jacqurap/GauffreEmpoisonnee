@@ -84,12 +84,17 @@ public class Plateau implements Cloneable {
      * @param y coordonnee a la verticale
      */
     
-    public void eatGauffre(int x, int y) {
+    public boolean eatGauffre(int x, int y) {
         for (int i = x; i < 8; i++) {
             for (int j = y; j < 8; j++) {
                 this.gauffre[i][j] = -1;
             }
         }
+		if(this.gauffre[1][1] == -1 && this.gauffre[0][1] == -1){
+			System.out.println("GAME OVER");
+			return false;
+		}
+		return true;
     }
 
     /**
