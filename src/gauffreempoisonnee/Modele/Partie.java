@@ -55,19 +55,25 @@ public class Partie {
     }
 
     /**
-     * @return the annuler
+     * Pile historique annulation
+     * @return annuler, la pile annuler
      */
     public Stack<Plateau> getAnnuler() {
         return annuler;
     }
 
     /**
-     * @return the refaire
+     * Pile historique refaire
+     * @return annuler, la pile refaire
      */
     public Stack<Plateau> getRefaire() {
         return refaire;
     }
 
+    /**
+     * Affiche le contenu des piles annuler et refaire
+     */
+    
     public void printStacks() {
         Iterator<Plateau> iterA = annuler.iterator();
         Iterator<Plateau> iterR = refaire.iterator();

@@ -25,6 +25,11 @@ public class Fenetre implements Runnable {
         AireDeJeu aire = new AireDeJeu(moteur); 
         frame.add(aire);
         
+        JMenu fichier = new JMenu("Fichier");
+        
+        JMenuItem item_nouv_partie = new JMenuItem("Nouvelle Partie");
+        fichier.add(item_nouv_partie);
+        
         JMenu menu_file = new JMenu("Edition");
 
         JMenuItem item_annuler = new JMenuItem("Annuler");
@@ -38,8 +43,10 @@ public class Fenetre implements Runnable {
         aire.addMouseListener(new EcouteurDeSouris(moteur, aire, item_annuler, item_refaire));
         item_annuler.addActionListener(new AnnulerAction( aire, item_annuler, item_refaire));
         item_refaire.addActionListener(new RefaireAction(aire, item_annuler, item_refaire));
+        item_nouv_partie.addActionListener(new NouvPartieAction( aire) );
 
         JMenuBar barre = new JMenuBar();
+        barre.add(fichier);
         barre.add(menu_file);
         frame.setJMenuBar(barre);
 

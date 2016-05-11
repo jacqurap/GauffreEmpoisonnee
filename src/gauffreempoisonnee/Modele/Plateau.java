@@ -33,6 +33,12 @@ public class Plateau implements Cloneable {
         this.gauffre[0][0] = 1;
     }
     
+    /**
+     * Creation d'une copie du plateau
+     * @return copie, la copie du plateau
+     * 
+     */
+    @Override
     public Object clone() {
         Plateau copie = null;
         try {
@@ -55,13 +61,15 @@ public class Plateau implements Cloneable {
     /**
      * @return la gauffre
      */
+    
     public int[][] getGauffre() {
         return gauffre;
     }
 
     /**
-     * @param gauffre la gauffre a definir
+     * @param g la gauffre a definir
      */
+    
     public void setGauffre(int[][] g){
         for(int i=0; i<8;i++){
             for(int j=0;j<8;j++){
